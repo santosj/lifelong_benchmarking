@@ -1,0 +1,11 @@
+<launch>
+
+	<arg name="map" default="/home/linda/catkin_ws/src/strands_morse/uol/maps/uol_ww-nogo.yaml"/>
+	<node name="no_go_map_server" pkg="map_server" type="map_server" args="$(arg map)">
+	  <remap from="/map" to="/exploration_no_go_map"/>
+
+	</node>
+	
+	<node pkg="spatiotemporalexploration" type="exploration_planner" name="planner" output="screen"></node>
+	
+</launch>
